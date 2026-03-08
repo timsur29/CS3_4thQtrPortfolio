@@ -1,0 +1,121 @@
+head {
+    color: midnightblue;
+    font-family: 'Courier New', Courier, monospace;
+}
+body {
+    background-color: azure;
+}
+h1 {
+    color: midnightblue;
+    font-family:'Courier New', Courier, monospace;
+}
+h2 {
+    color: midnightblue;
+    font-family: 'Courier New', Courier, monospace;
+}
+h3 {
+    color: midnightblue;
+    font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+}
+p {
+    color: navy;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    size: 42px;
+}
+li {
+    color: navy;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    size: 42px;
+}
+marquee {
+    color: darkred;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    width: 100%;
+}
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: lightseagreen;
+    cursor: pointer;
+    font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    background-color: bisque;
+    border-color: bisque;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+div {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    color: navy;
+    margin-block: 10px;
+    margin-inline: 10px;
+}
+#enclosure1 {
+    display: inline-block;
+    border: 4px solid midnightblue;
+    margin: 0 auto;
+    background-color: #d1e5f4;
+    border-radius: 10px;
+    max-width: 1000px;
+}
+
+#hugot {
+    color: transparent;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    size: 42px;
+}
+
+label {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    color: navy;
+}
+
+.card {
+    width: 200px;
+    padding: lem;
+    border: 2px solid #333;
+    border-radius: 10px;
+    text-align: center;
+    background: #eeeeee;
+}
+
+.card :hover {
+    width: 100px;
+}
+
+table, td, th, tbody {
+    border-collapse: initial;
+    border: 1px solid midnightblue;
+    color: navy;
+    font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';    
+    border-radius: 5px;
+    padding: 5px;
+}
+
+table {
+    background-color: bisque;
+}
+
+th {
+    background-color: none;
+}
+
+img {
+    margin-inline: 20px;
+    margin-block: 20px;
+}
+
+iframe {
+    border-radius: 20px;
+}
+
+.starfield {
+    border: none;
+}
+
+.star {
+    
+}
+
+.reviewtable {
+    background-color: #d1e5f4;
+}
