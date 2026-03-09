@@ -9,13 +9,14 @@
     
     <div id="enclosure1">
       <h1>Add a Movie------------------------------------</h1>
-      <form>
+      <form id="mform" method="post">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required><br><br>
         <label for="year">Year:</label>
         <input type="number" id="year" name="year" required><br><br>
         <label for="genre">Genre:</label>
         <select id="genre" name="genre" required>
+          <option value="" disabled selected>Genre</option>
           <option value="Action">Action</option>
           <option value="Comedy">Comedy</option>
           <option value="Drama">Drama</option>
@@ -23,14 +24,19 @@
           <option value="Sci-Fi">Sci-Fi</option>
         </select><br><br>
         <label for="stars">Rating:</label>
-        <fieldset id="stars" class="starfield" onclick="starcolor()">
-          <input class="star" type="radio" id="1s" name="rating" value=1 required>
-          <input class="star" type="radio" id="2s" name="rating" value=2>
-          <input class="star" type="radio" id="3s" name="rating" value=3>
-          <input class="star" type="radio" id="4s" name="rating" value=4>
-          <input class="star" type="radio" id="5s" name="rating" value=5>
-        </fieldset><br><br>
-        <input type="button" value="Add Movie" onclick="updateMovies()">
+        <fieldset id="stars" class="starfield" onclick="starColor()">
+          <label for="1s" class="star">&#9733;</label>
+          <input class="rstar" type="radio" id="1s" name="rating" value=1 required>
+          <label for="2s" class="star">&#9733;</label>
+          <input class="rstar" type="radio" id="2s" name="rating" value=2>
+          <label for="3s" class="star">&#9733;</label>
+          <input class="rstar" type="radio" id="3s" name="rating" value=3>
+          <label for="4s" class="star">&#9733;</label>
+          <input class="rstar" type="radio" id="4s" name="rating" value=4>
+          <label for="5s" class="star">&#9733;</label>
+          <input class="rstar" type="radio" id="5s" name="rating" value=5>
+        </fieldset><br>
+        <input type="submit" value="Add Movie">
       </form>
         
     </div><br><br>
@@ -51,22 +57,40 @@
 
     <button><a href="../index.html">Home</a></button>
   <script>
-    existing = JSON.parse(localStorage.getItem("movies") || "[]");
+    const existing = JSON.parse(localStorage.getItem("movies") || "[]");
     updateTable();
 
+    document.addEventListener("submit", function(event) {
+      event.preventDefault();
+      updateMovies();
+    });
 
-    function starcolor() {
-      const stars = document.getElementsByName("rating");
+    function starColor() {
+      const stars = document.getElementsByClassName("star");
+      const rating = document.querySelector('input[name="rating"]:checked').value;
       for (let i=0; i<stars.length; i++) {
-        if (stars[i].checked) {
-          for (let j=i; j>=0; j--) {
-            stars[j].style.backgroundColor = "yellow";
-          }
+        if (i < rating) {
+          stars[i].classList.add("starclicked");
+        } else {
+          stars[i].classList.remove("starclicked");
         }
       }
     }
 
+    function starHover() {
+      const rstars = document.getElementsByClassName("rstar");
+      const stars = document.getElementsByClassName("star");
+      for (let i=0; i<stars.length; i++) {
+        if (rstars[i].matches(":hover") || stars[i].matches(":hover")) {
+          for (let j=0; j<=i; j++) {
+            stars[j].classList.add("starclicked");
+          }
+        }
+      }
+    } // i'll figure this out eventually, can't get it to call
+
     function updateMovies() {
+      const stars = document.getElementsByClassName("star");
       const title = document.getElementById("title").value;
       const year = document.getElementById("year").value;
       const genre = document.getElementById("genre").value;
@@ -82,8 +106,12 @@
 
         existing.push(review);
         localStorage.setItem("movies", JSON.stringify(existing));
+        document.getElementById("mform").reset();
         
         updateTable();
+        for (let i=0; i<stars.length; i++) {
+          stars[i].classList.remove("starclicked");
+        }
       }
     }
 
@@ -99,7 +127,7 @@
           cell.innerHTML = existing[i][keys[j]];
         } 
         const cell = row.insertCell();
-        cell.style.color = "yellow";
+        cell.style.color = "gold";
         let stars = "";
         for (let k=0; k<existing[i].rating; k++) {
           stars += "&#9733;";

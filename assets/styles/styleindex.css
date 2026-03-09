@@ -113,9 +113,23 @@ iframe {
 }
 
 .star {
-    
+    color: darkgray;
+    z-index: 1;
+    position: relative;
+}
+
+.rstar {
+    opacity: 0;
+    z-index: 2;
 }
 
 .reviewtable {
     background-color: #d1e5f4;
+}
+
+.starclicked {
+    color: gold;
+    transform: scale(2);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #333;
 }
