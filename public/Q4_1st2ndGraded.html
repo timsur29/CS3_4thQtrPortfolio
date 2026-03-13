@@ -115,7 +115,6 @@
             existing[i].revs = Number(existing[i].revs) + 1;
             existing[i].rating += Number(rating);
             existing[i].rating = Number(existing[i].rating) / Number(existing[i].revs);
-            existing[i].rating = Math.round(existing[i].rating);
 
             etest = true;
           }
@@ -150,7 +149,7 @@
         const ratecell = row.insertCell();
         ratecell.style.color = "gold";
         let stars = "";
-        for (let k=0; k<existing[i].rating; k++) {
+        for (let k=0; k<Math.round(Number(existing[i].rating)); k++) {
           stars += "&#9733;";
         }
         const revcell = row.insertCell();
