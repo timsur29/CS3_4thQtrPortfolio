@@ -98,6 +98,7 @@ label {
 table, td, th, tbody {
     border-collapse: initial;
     border: 1px solid goldenrod;
+    background-color: #dbddb7;
     color: rgb(121, 34, 7);
     font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';    
     border-radius: 5px;
@@ -106,14 +107,6 @@ table, td, th, tbody {
 
 label {
     color: rgb(121, 34, 7);
-}
-
-table {
-    background-color: bisque;
-}
-
-th {
-    background-color: none;
 }
 
 img {
