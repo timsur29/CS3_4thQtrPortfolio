@@ -47,7 +47,9 @@
           <th>Title</th>
           <th>Year</th>
           <th>Genre</th>
-          <th>Rating</th> 
+          <th>Rating</th>
+          <th>Reviews</th>
+          <th>Deletion</th> 
         </tr>
       </thead>
       <tbody>
@@ -101,10 +103,28 @@
           title: title,
           year: year,
           genre: genre,
-          rating: rating
+          rating: rating,
+          revs: 1
+        }
+        
+        let etest = false;
+
+        for (let i=0; i<existing.length; i++) {
+          if (existing[i].title == title && existing[i].year == year && existing[i].genre == genre) {
+            existing[i].rating = Number(existing[i].rating) * Number(existing[i].revs);
+            existing[i].revs = Number(existing[i].revs) + 1;
+            existing[i].rating += Number(rating);
+            existing[i].rating = Number(existing[i].rating) / Number(existing[i].revs);
+            existing[i].rating = Math.round(existing[i].rating);
+
+            etest = true;
+          }
         }
 
-        existing.push(review);
+        if (!etest) {
+          existing.push(review);
+        }
+        
         localStorage.setItem("movies", JSON.stringify(existing));
         document.getElementById("mform").reset();
         
@@ -122,19 +142,38 @@
       for (let i=0; i<existing.length; i++) {
         const row = table.insertRow();
         let keys = Object.keys(existing[i]);
-        for (let j=0; j<keys.length-1; j++) { 
+        for (let j=0; j<keys.length-2; j++) { 
           const cell = row.insertCell();
           cell.innerHTML = existing[i][keys[j]];
-        } 
-        const cell = row.insertCell();
-        cell.style.color = "gold";
+        }
+
+        const ratecell = row.insertCell();
+        ratecell.style.color = "gold";
         let stars = "";
         for (let k=0; k<existing[i].rating; k++) {
           stars += "&#9733;";
         }
-        cell.innerHTML = stars;
-        cell.style.webkitTextStrokeColor = "#333";
-        cell.style.webkitTextStrokeWidth = "1px";
+        const revcell = row.insertCell();
+        revcell.innerHTML = existing[i].revs;
+        ratecell.innerHTML = stars;
+        ratecell.style.webkitTextStrokeColor = "#333";
+        ratecell.style.webkitTextStrokeWidth = "1px";
+
+        const delcell = row.insertCell();
+        delcell.innerHTML = "Delete";
+        delcell.classList.add("delbutton");
+        delcell.value = i;
+        delcell.onclick = function() {
+          deleteMovie(this.value);
+        }
+      }
+    }
+
+    function deleteMovie(index) {
+      if (confirm("Delete this movie rating?")) {
+        existing.splice(index, 1);
+        localStorage.setItem("movies", JSON.stringify(existing));
+        updateTable();
       }
     }
 
