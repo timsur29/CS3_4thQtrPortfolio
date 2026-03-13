@@ -35,13 +35,25 @@ marquee {
 button {
     padding: 10px 20px;
     font-size: 1rem;
-    color: lightseagreen;
     cursor: pointer;
     font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
-    background-color: bisque;
-    border-color: bisque;
+    background-color: #dbddb7;
+    border-color: goldenrod;
     border-radius: 1rem;
     cursor: pointer;
+}
+a {
+    color: darkred;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+}
+a :hover {
+    color: #741568
+}
+a :visited {
+    color: #741568;
+}
+a :visited :hover {
+    color: darkred;
 }
 div {
     font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
@@ -129,7 +141,7 @@ iframe {
 }
 
 .reviewtable {
-    background-color: #d1e5f4;
+    background-color: #dbddb7;
 }
 
 .starclicked {
