@@ -148,15 +148,16 @@
 
         const ratecell = row.insertCell();
         ratecell.style.color = "gold";
+        ratecell.style.webkitTextStrokeColor = "#333";
+        ratecell.style.webkitTextStrokeWidth = "1px";
         let stars = "";
         for (let k=0; k<Math.round(Number(existing[i].rating)); k++) {
           stars += "&#9733;";
         }
+        ratecell.innerHTML = stars;
+
         const revcell = row.insertCell();
         revcell.innerHTML = existing[i].revs;
-        ratecell.innerHTML = stars;
-        ratecell.style.webkitTextStrokeColor = "#333";
-        ratecell.style.webkitTextStrokeWidth = "1px";
 
         const delcell = row.insertCell();
         delcell.innerHTML = "Delete";
