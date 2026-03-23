@@ -170,7 +170,7 @@
     }
 
     function deleteMovie(index) {
-      if (confirm("Delete this movie rating?")) {
+      if (confirm("Delete this movie's information?")) {
         existing.splice(index, 1);
         localStorage.setItem("movies", JSON.stringify(existing));
         updateTable();
