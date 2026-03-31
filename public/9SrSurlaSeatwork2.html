@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="author" content="Tim Surla and Yna Carlos" />
+  <meta name="revised" content="31 Mar 2026" />
+  <style>
+    body { font-family: Arial, sans-serif; }
+    .header, .footer {
+      background: lightblue;
+      padding: 10px;
+    }
+    .footer {
+       opacity: 0.5;
+       position: fixed; bottom: 0; width: 100%;
+    }
+    .sidebar {
+      background: lightgreen;
+      width: 150px;
+      height: 200px;
+      position: relative; top: 20px; left: 20px;
+    }
+    .content {
+      background: lightyellow;
+      width: 300px;
+      height: 200px;
+      position: absolute; top: 66px; left: 200px;
+      z-index: 1;
+    }    
+    .notice { /* relative causes it to be "pushed around" by sidebar, z-index determines 
+    whether or not notice is above content (yes if equal or higher, no if lower) */
+    position: absolute;
+    top: 66px; /* moved 6px down */
+    left: 430px; /* moved 30px right */
+    background: orange;
+    padding: 10px;
+    z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">Header</div>
+  <div class="sidebar">Sidebar</div>
+  <div class="content">Main Content</div>
+  <div class="footer">Footer</div>
+  <div class="notice">Notice!</div>
+</body>
+</html>
+
+<!-- Guide Questions -->
+
+<!-- 1. The sidebar moved 20 pixels from the left and 20 pixels from the top, moving it right 
+ and down. Positive values move the element away from the indicated direction 
+ by that many units. -->
+<!-- 2. The footer is positioned fixed to 0 pixels from the bottom. Because it is fixed,
+ its position is attached to the entire window and not just the scrollable area. -->
+<!-- 3. Scrolling the page still moves the main content, but the absolute positioning
+ keeps it from being displaced by sidebar and other elements and instead places it
+ in a position defined relative to the page. -->
+<!-- 4. The notice appears on top of the main content because its z-index, which
+ determines stacking order, is higher than that of the latter. Swapping them causes
+ the main content to be displayed over the notice. -->
+
+
+<!-- Reflection Questions -->
+
+<!-- a. Static positioning is the most basic, positioning an element according to how other
+ parts of the page displace it. Relative positions it relative to its static location.
+ Absolute positions it in terms of its parent, an element that it is in or associated with.
+ Fixed positions it relative to the browser's actual app window. -->
+<!-- b. Absolute positioning is similar to relative positioning, but positions with the 
+ parent instead of the statically-positioned location as reference. -->
+<!-- c. Sticky positioning behaves similar to fixed positioning, moving with the window
+ itself, but differs in that it is not constantly stuck to the window but rather can
+ scroll like it is within certain bounds. -->
+<!-- d. If I had to do design a website for a school event, I would use positioning to
+ bring attention to information as needed. Fixed positioning places menus such that they
+ are always visible; sticky works for some persistent alerts for certain sections; absolute
+ works for the labels of some dynamic elements (like the buttons around a comment);
+ and static and relative form the bulk of the website, forming most basic elements and
+ allowing limited customization. The z-order property would be used to stack them as needed
+ such as for notification bubbles or alerts. -->
