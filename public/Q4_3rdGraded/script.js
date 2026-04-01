@@ -1,6 +1,10 @@
 function plotPoint() {
     console.log(x0, y0, x, y) // checks the arguments passed to this function
     in1.innerHTML = x0.value + " " + y0.value + " " + x.value + " " + y.value;
+    const points = document.getElementsByClassName('point');
+    while(points.length > 0){
+      points[0].parentNode.removeChild(points[0]);
+    }
     var point = document.createElement('div');  
     point.className = 'point';
     /* control where to place the div on the screen using left and bottom of position:absolute */
