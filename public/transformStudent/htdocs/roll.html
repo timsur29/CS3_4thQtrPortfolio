@@ -32,15 +32,41 @@
 			}
 			#roll div:first-of-type{
 				background-color: red;
+				top: 1%;
+				position: absolute;
 			}
 			#roll div:nth-of-type(2){
 				background-color: yellow;
-				}
+				top: 1%;
+				left: 50%;
+				position: absolute;
+			}
 			#roll div:nth-of-type(3){
 				background-color: blue;
+				top: 21%;
+				position: absolute;
 			}
 			#roll div:last-of-type{
  				background-color: green;
+				top: 21%;
+				left: 50%;
+				position: absolute;
+			}
+			#roll:hover div:first-of-type{
+				transform: skew(-40deg, 0deg);
+				transform-origin: top left;
+			}
+			#roll:hover div:nth-of-type(2){
+				transform: skew(40deg, 0deg);
+				transform-origin: top right;
+			}
+			#roll:hover div:nth-of-type(3){
+				transform: skew(40deg, 0deg);
+				transform-origin: bottom left;
+			}
+			#roll:hover div:last-of-type{
+				transform: skew(-40deg, 0deg);
+				transform-origin: bottom right;
 			}
 			p {
 				text-align: center;
