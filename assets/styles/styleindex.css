@@ -161,3 +161,104 @@ iframe {
     text-align: center;
     background-color: rgb(121, 34, 7);
 }
+
+
+.eye {
+    background-color: transparent;
+    transition-duration: 0.3s;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 50px;
+    right: 50px;
+}
+
+.eyeball {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background-color: #101;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    border: none;
+    margin: 0;
+}
+
+.iris {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: maroon;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: none;
+    margin: 0;
+}
+
+.eye:hover .eyeball div.upleft {
+    transform: skew(0deg -40deg);
+    transform-origin: bottom-right;
+}
+
+.eye:hover .eyeball div.upright {
+    transform: skew(0deg 40deg);
+    transform-origin: bottom-left;
+}
+
+.eye:hover .eyeball div.downleft {
+    transform: skew(0deg 40deg);
+    transform-origin: top-right;
+}
+
+.eye:hover .eyeball div.downright {
+    transform: skew(0deg -40deg);
+    transform-origin: top-left;
+}
+
+.upleft {
+    width: 100px;
+    height: 100px;
+    background-color: #100;
+    border-top-left-radius: 100px;
+    position: absolute;
+    top: 0;
+    right: 100px;;
+    z-index: 3;
+}  
+
+.upright {
+    width: 100px;
+    height: 100px;
+    background-color: #100;
+    border-top-right-radius: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+}
+
+.downleft {
+    width: 100px;
+    height: 100px;
+    background-color: #100;
+    border-bottom-left-radius: 100px;
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    z-index: 3;
+}
+
+.downright {
+    width: 100px;
+    height: 100px;
+    background-color: #100;
+    border-bottom-right-radius: 100px;
+    position: absolute;
+    top: 100px;
+    right: 0;
+    z-index: 3;
+}
