@@ -4,6 +4,7 @@ head {
 }
 body {
     background-color: #100;
+    position: relative;
 }
 h1 {
     color: rgb(121, 34, 7);
@@ -162,103 +163,85 @@ iframe {
     background-color: rgb(121, 34, 7);
 }
 
-
 .eye {
     background-color: transparent;
-    transition-duration: 0.3s;
     position: absolute;
     width: 200px;
     height: 200px;
-    top: 50px;
-    right: 50px;
+    top: 50px; 
+    right: 50px; 
+    z-index: 10; 
 }
 
 .eyeball {
     width: 200px;
     height: 200px;
-    border-radius: 100px;
-    background-color: #101;
-    position: absolute;
-    top: 0;
-    right: 0;
+    border-radius: 50%; 
+    background-color: transparent; 
+    position: relative; 
     z-index: 1;
-    border: none;
-    margin: 0;
 }
 
 .iris {
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-    background-color: maroon;
-    z-index: 2;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; 
+    background-color: #333; 
     position: absolute;
     top: 50%;
     left: 50%;
-    border: none;
-    margin: 0;
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
 
-.eye:hover .eyeball div.upleft {
-    transform: skew(0deg -40deg);
-    transform-origin: bottom-right;
-}
-
-.eye:hover .eyeball div.upright {
-    transform: skew(0deg 40deg);
-    transform-origin: bottom-left;
-}
-
-.eye:hover .eyeball div.downleft {
-    transform: skew(0deg 40deg);
-    transform-origin: top-right;
-}
-
-.eye:hover .eyeball div.downright {
-    transform: skew(0deg -40deg);
-    transform-origin: top-left;
+.upleft, .upright, .downleft, .downright {
+    width: 110px;
+    height: 110px;
+    background-color: #100;
+    position: absolute;
+    z-index: 3;
 }
 
 .upleft {
-    width: 100px;
-    height: 100px;
-    background-color: #100;
     border-top-left-radius: 100px;
-    position: absolute;
     top: 0;
-    right: 100px;;
-    z-index: 3;
-}  
+    left: 0;
+}
 
 .upright {
-    width: 100px;
-    height: 100px;
-    background-color: #100;
     border-top-right-radius: 100px;
-    position: absolute;
     top: 0;
     right: 0;
-    z-index: 3;
 }
 
 .downleft {
-    width: 100px;
-    height: 100px;
-    background-color: #100;
     border-bottom-left-radius: 100px;
-    position: absolute;
-    top: 100px;
-    right: 100px;
-    z-index: 3;
+    bottom: 0;
+    left: 0;
 }
 
 .downright {
-    width: 100px;
-    height: 100px;
-    background-color: #100;
     border-bottom-right-radius: 100px;
-    position: absolute;
-    top: 100px;
+    bottom: 0;
     right: 0;
-    z-index: 3;
+}
+
+.eye:hover .eyeball .upleft {
+    transform: skew(-40deg, 0deg);
+    transform-origin: bottom-right;
+}
+
+.eye:hover .eyeball .upright {
+    transform: skew(40deg, 0deg);
+    transform-origin: bottom-left;
+}
+
+.eye:hover .eyeball .downleft {
+    transform: skew(40deg, 0deg);
+    transform-origin: top-right;
+}
+
+.eye:hover .eyeball .downright {
+    transform: skew(-40deg, 0deg);
+    transform-origin: top-left;
 }
