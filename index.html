@@ -23,13 +23,26 @@
 
         <div class="eye">
             <div class="eyeball">
-                <div class="iris"></div>
+                <div class="iris" onclick="opensecret()"></div>
                 <div class="upleft"></div>
                 <div class="upright"></div>
                 <div class="downleft"></div>
                 <div class="downright"></div>
             </div>
         </div>
+
+        <script>
+            const clicked = JSON.parse(localStorage.getItem("clicked")) || false;
+
+            function opensecret() {
+                if (clicked == true) {
+                    alert("you may go.")
+                } else {
+                    localStorage.setItem("clicked", true)
+                    window.open("../../.vscode/secret.html")
+                }
+            }
+        </script>
 
 
     </body>

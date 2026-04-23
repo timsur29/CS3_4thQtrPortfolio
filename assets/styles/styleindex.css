@@ -186,7 +186,7 @@ iframe {
     width: 80px;
     height: 80px;
     border-radius: 50%; 
-    background-color: #333; 
+    background-color: #355; 
     position: absolute;
     top: 50%;
     left: 50%;
@@ -200,6 +200,7 @@ iframe {
     background-color: #100;
     position: absolute;
     z-index: 3;
+    transition-duration: 0.3s;
 }
 
 .upleft {
@@ -229,19 +230,23 @@ iframe {
 .eye:hover .eyeball .upleft {
     transform: skew(-40deg, 0deg);
     transform-origin: bottom-right;
+    background-color: #522;
 }
 
 .eye:hover .eyeball .upright {
     transform: skew(40deg, 0deg);
     transform-origin: bottom-left;
+    background-color: #522;
 }
 
 .eye:hover .eyeball .downleft {
     transform: skew(40deg, 0deg);
     transform-origin: top-right;
+    background-color: #522;
 }
 
 .eye:hover .eyeball .downright {
     transform: skew(-40deg, 0deg);
     transform-origin: top-left;
+    background-color: #522;
 }
